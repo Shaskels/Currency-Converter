@@ -13,7 +13,7 @@ class UpdateWorker @Inject constructor(
 
     @Inject
     lateinit var updateCurrencies: UpdateCurrencies
-
+  
     override suspend fun doWork(): Result {
         try {
             updateCurrencies()

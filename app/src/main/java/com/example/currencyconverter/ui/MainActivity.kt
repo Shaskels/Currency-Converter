@@ -24,12 +24,12 @@ class MainActivity : AppCompatActivity() {
                 commit()
             }
         }
-//        val constraints =
-//            Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build()
-//        val updateWorkerRequest =
-//            PeriodicWorkRequestBuilder<UpdateWorker>(12, TimeUnit.HOURS).setConstraints(constraints)
-//                .addTag("update").build()
-//
-//        WorkManager.getInstance(applicationContext).enqueue(updateWorkerRequest)
+        val constraints =
+            Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build()
+        val updateWorkerRequest =
+            PeriodicWorkRequestBuilder<UpdateWorker>(12, TimeUnit.HOURS).setConstraints(constraints)
+                .addTag("update").build()
+
+        WorkManager.getInstance(applicationContext).enqueue(updateWorkerRequest)
     }
 }
