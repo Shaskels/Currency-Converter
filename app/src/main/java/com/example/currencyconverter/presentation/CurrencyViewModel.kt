@@ -9,6 +9,7 @@ import com.example.currencyconverter.domain.ConverterMode
 import com.example.currencyconverter.domain.Currency
 import com.example.currencyconverter.domain.usecases.GetCurrencies
 import com.example.currencyconverter.domain.usecases.UpdateCurrencies
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
