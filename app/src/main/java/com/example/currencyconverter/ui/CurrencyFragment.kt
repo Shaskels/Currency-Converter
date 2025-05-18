@@ -1,29 +1,25 @@
 package com.example.currencyconverter.ui
 
+import android.appwidget.AppWidgetManager
+import android.content.ComponentName
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import androidx.work.Constraints
-import androidx.work.NetworkType
-import androidx.work.PeriodicWorkRequestBuilder
-import androidx.work.WorkManager
 import com.example.currencyconverter.CurrencyConverterApplication
 import com.example.currencyconverter.R
 import com.example.currencyconverter.presentation.CurrencyListAdapter
 import com.example.currencyconverter.presentation.CurrencyListState
 import com.example.currencyconverter.presentation.CurrencyViewModel
-import com.example.currencyconverter.presentation.UpdateWorker
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import java.util.concurrent.TimeUnit
+
 
 /**
  * A simple [Fragment] subclass.
@@ -40,7 +36,6 @@ class CurrencyFragment : Fragment() {
         (requireActivity().applicationContext as CurrencyConverterApplication).appComponent.injectCurrencyFragment(
             this
         )
-
         adapter =
             CurrencyListAdapter(ArrayList()) { item, position ->
                 viewModel.updateClickedItem(
@@ -73,11 +68,31 @@ class CurrencyFragment : Fragment() {
             )
         )
         swipeRefreshLayout.setOnRefreshListener {
-            viewModel.updateCurrenciesList()
-            swipeRefreshLayout.isRefreshing = false
+            refreshList(swipeRefreshLayout)
         }
 
         viewModel.getCurrenciesList()
+    }
+
+    private fun refreshList(swipeRefreshLayout: SwipeRefreshLayout) {
+        viewModel.updateCurrenciesList()
+        val intent = Intent(
+            requireContext(),
+            CurrencyAppWidget::class.java
+        )
+        intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE)
+
+        val ids =
+            AppWidgetManager.getInstance(requireActivity().applicationContext).getAppWidgetIds(
+                ComponentName(
+                    requireActivity().applicationContext,
+                    CurrencyAppWidget::class.java
+                )
+            )
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
+        requireActivity().sendBroadcast(intent)
+
+        swipeRefreshLayout.isRefreshing = false
     }
 
     private fun renderState(state: CurrencyListState) {
@@ -99,6 +114,4 @@ class CurrencyFragment : Fragment() {
         @JvmStatic
         fun newInstance() = CurrencyFragment()
     }
-
-
 }

@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:textSize="24dp"
-        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:textSize="23dp"
+        android:textStyle="bold"
         android:text="USD" />
 
 
@@ -25,7 +25,7 @@
         android:layout_toEndOf="@id/charCode"
         android:layout_below="@id/charCode"
         android:textSize="15dp"
-        android:textAppearance="?attr/textAppearanceBody1"
+        android:textStyle="bold"
         tools:text="52.0573" />
 
     <TextView
@@ -35,7 +35,7 @@
         android:layout_below="@id/value"
         android:layout_toEndOf="@id/charCode"
         android:textSize="15dp"
-        android:textAppearance="?attr/textAppearanceBody1"
+        android:textStyle="bold"
         tools:text="52.7014" />
 
     <ImageView
@@ -55,8 +55,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/previous"
         android:layout_alignParentStart="true"
-        android:textSize="24dp"
-        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:textSize="23dp"
+        android:textStyle="bold"
         android:text="EUR" />
 
 
@@ -67,7 +67,7 @@
         android:layout_below="@id/charCode2"
         android:layout_toEndOf="@id/charCode2"
         android:textSize="15dp"
-        android:textAppearance="?attr/textAppearanceBody1"
+        android:textStyle="bold"
         tools:text="52.0573" />
 
     <TextView
@@ -77,7 +77,7 @@
         android:layout_below="@id/value2"
         android:layout_toEndOf="@id/charCode2"
         android:textSize="15dp"
-        android:textAppearance="?attr/textAppearanceBody1"
+        android:textStyle="bold"
         tools:text="52.7014" />
 
     <ImageView

@@ -2,10 +2,14 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.CurrencyConverter" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/light_blue_200</item>
+        <item name="colorOnSurface">@color/light_blue_900</item>
     </style>
 
-    <style name="Theme.CurrencyConverter" parent="Base.Theme.CurrencyConverter" />
+    <style name="Theme.CurrencyConverter" parent="Base.Theme.CurrencyConverter">
+        <item name="extendedFloatingActionButtonStyle">@style/Widget.App.ExtendedFloatingActionButton</item>
+        <item name="floatingActionButtonStyle">@style/Widget.App.FloatingActionButton</item>
+    </style>
 
     <style name="Theme.CurrencyConverter.AppWidgetContainerParent" parent="@android:style/Theme.DeviceDefault">
         <!-- Radius of the outer bound of widgets to make the rounded corners -->
@@ -18,7 +22,19 @@
     </style>
 
     <style name="Theme.CurrencyConverter.AppWidgetContainer" parent="Theme.CurrencyConverter.AppWidgetContainerParent">
-         Apply padding to avoid the content of the widget colliding with the rounded corners
         <item name="appWidgetPadding">10dp</item>
+    </style>
+
+    <style name="Widget.App.ExtendedFloatingActionButton" parent="Widget.Material3.ExtendedFloatingActionButton.Icon.Primary">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.FloatingActionButton</item>
+    </style>
+
+    <style name="Widget.App.FloatingActionButton" parent="Widget.Material3.FloatingActionButton.Small.Primary">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.FloatingActionButton</item>
+    </style>
+
+    <style name="ThemeOverlay.App.FloatingActionButton" parent="">
+        <item name="colorContainer">@color/light_blue_200</item>
+        <item name="colorOnContainer">@color/light_blue_900</item>
     </style>
 </resources>
