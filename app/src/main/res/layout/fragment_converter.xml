@@ -7,7 +7,7 @@
     tools:context=".ui.ConverterFragment">
 
     <com.google.android.material.textfield.TextInputLayout
-        style="?attr/textInputFilledStyle"
+        style="@style/Widget.App.TextInputLayout"
         android:id="@+id/enterCountUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,6 +19,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/enterCountUpText"
+            android:textColor="@color/light_blue_900"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
@@ -38,13 +39,14 @@
         app:layout_constraintLeft_toLeftOf="parent"/>
 
     <com.google.android.material.textfield.TextInputLayout
-        style="?attr/textInputFilledStyle"
+        style="@style/Widget.App.TextInputLayout"
         android:id="@+id/enterCountDown"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:enabled="false"
         android:layout_margin="15dp"
         app:endIconMode="clear_text"
+        app:hintEnabled="false"
         app:helperText="Российский рубль"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/floatingActionButton">
@@ -53,6 +55,7 @@
             android:id="@+id/enterCountDownText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/light_blue_900"
             android:inputType="none"
             />
 

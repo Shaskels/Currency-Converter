@@ -7,6 +7,18 @@
 
     <style name="Widget.CurrencyConverter.AppWidget.InnerView" parent="android:Widget">
         <item name="android:background">?android:attr/colorBackground</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    
+    <style name="Widget.App.TextInputLayout" parent="Widget.Material3.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">@color/light_blue_200</item>
+        <item name="boxStrokeColor">@color/light_blue_900</item>
+        <item name="android:textColor">@color/light_blue_900</item>
+        <item name="cursorColor">@color/light_blue_900</item>
+        <item name="errorTextColor">@color/red</item>
+        <item name="helperTextTextColor">@color/light_blue_900</item>
+        <item name="hintTextColor">@color/light_blue_900</item>
+        <item name="android:textColorHint">@color/light_blue_900</item>
+        <item name="endIconTint">@color/light_blue_900</item>
     </style>
 </resources>

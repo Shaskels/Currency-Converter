@@ -7,10 +7,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.currencyconverter.domain.ConverterMode
 import com.example.currencyconverter.domain.Currency
+import com.example.currencyconverter.domain.usecases.ConvertToCurrency
+import com.example.currencyconverter.domain.usecases.ConvertToRubles
 import com.example.currencyconverter.domain.usecases.GetCurrencies
 import com.example.currencyconverter.domain.usecases.UpdateCurrencies
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -19,7 +19,9 @@ import javax.inject.Inject
 
 class CurrencyViewModel @Inject constructor(
     private val getCurrencies: GetCurrencies,
-    private val updateCurrencies: UpdateCurrencies
+    private val updateCurrencies: UpdateCurrencies,
+    private val convertToRubles: ConvertToRubles,
+    private val convertToCurrency: ConvertToCurrency,
 ) : ViewModel() {
 
     private val _currencyListState = MutableLiveData<CurrencyListState>()
@@ -62,14 +64,26 @@ class CurrencyViewModel @Inject constructor(
     }
 
     fun convertToRubles(money: BigDecimal): BigDecimal {
-        return if (_selectedItem.value != null)
-            money * (_selectedItem.value!!.value / BigDecimal(_selectedItem.value!!.nominal))
-        else BigDecimal(0)
+        return if (_selectedItem.value != null) {
+            convertToRubles(
+                _selectedItem.value!!.value,
+                money,
+                BigDecimal(_selectedItem.value!!.nominal)
+            )
+        } else {
+            BigDecimal(0)
+        }
     }
 
     fun convertToCurrency(money: BigDecimal): BigDecimal {
-        return if (_selectedItem.value != null)
-            money * (BigDecimal(_selectedItem.value!!.nominal) / _selectedItem.value!!.value)
-        else BigDecimal(0)
+        return if (_selectedItem.value != null) {
+            convertToCurrency(
+                _selectedItem.value!!.value,
+                money,
+                BigDecimal(_selectedItem.value!!.nominal)
+            )
+        } else {
+            BigDecimal(0)
+        }
     }
 }
