@@ -7,11 +7,13 @@ import com.example.currencyconverter.domain.usecases.UpdateCurrencies
 import javax.inject.Inject
 
 class UpdateWorker @Inject constructor(
-    private val updateCurrencies: UpdateCurrencies,
     context: Context,
     workerParameters: WorkerParameters,
 ) : CoroutineWorker(context, workerParameters) {
 
+    @Inject
+    lateinit var updateCurrencies: UpdateCurrencies
+  
     override suspend fun doWork(): Result {
         try {
             updateCurrencies()

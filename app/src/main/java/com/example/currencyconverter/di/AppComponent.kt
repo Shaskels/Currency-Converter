@@ -1,6 +1,7 @@
 package com.example.currencyconverter.di
 
 import android.content.Context
+import com.example.currencyconverter.ui.CurrencyAppWidget
 import com.example.currencyconverter.domain.repository.CurrenciesRepository
 import com.example.currencyconverter.domain.usecases.UpdateCurrencies
 import com.example.currencyconverter.presentation.ViewModelFactory
@@ -25,6 +26,7 @@ interface AppComponent {
     fun viewModelsFactory() : ViewModelFactory
     fun injectCurrencyFragment(fragment: CurrencyFragment)
     fun injectConverterFragment(fragment: ConverterFragment)
+    fun injectWidget(widget: CurrencyAppWidget)
 }
 
 @Scope

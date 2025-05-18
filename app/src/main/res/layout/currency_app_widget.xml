@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.CurrencyConverter.AppWidget.Container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.CurrencyConverter.AppWidgetContainer">
+
+
+    <TextView
+        android:id="@+id/charCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:textSize="24dp"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:text="USD" />
+
+
+    <TextView
+        android:id="@+id/value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/charCode"
+        android:layout_below="@id/charCode"
+        android:textSize="15dp"
+        android:textAppearance="?attr/textAppearanceBody1"
+        tools:text="52.0573" />
+
+    <TextView
+        android:id="@+id/previous"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/value"
+        android:layout_toEndOf="@id/charCode"
+        android:textSize="15dp"
+        android:textAppearance="?attr/textAppearanceBody1"
+        tools:text="52.7014" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/previous"
+        android:layout_alignTop="@id/value"
+        android:layout_toEndOf="@id/value"
+        android:layout_marginStart="5dp"
+        app:srcCompat="@android:drawable/arrow_down_float" />
+
+
+    <TextView
+        android:id="@+id/charCode2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/previous"
+        android:layout_alignParentStart="true"
+        android:textSize="24dp"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:text="EUR" />
+
+
+    <TextView
+        android:id="@+id/value2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/charCode2"
+        android:layout_toEndOf="@id/charCode2"
+        android:textSize="15dp"
+        android:textAppearance="?attr/textAppearanceBody1"
+        tools:text="52.0573" />
+
+    <TextView
+        android:id="@+id/previous2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/value2"
+        android:layout_toEndOf="@id/charCode2"
+        android:textSize="15dp"
+        android:textAppearance="?attr/textAppearanceBody1"
+        tools:text="52.7014" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/previous2"
+        android:layout_alignTop="@id/value2"
+        android:layout_toEndOf="@id/value2"
+        android:layout_marginStart="5dp"
+        app:srcCompat="@android:drawable/arrow_down_float" />
+
+</RelativeLayout>
